@@ -1,24 +1,69 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# Node.js
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-src/api/.env
+
+# Logs
+logs/
+*.log
+
+# dotenv environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+client/build/
+client/dist/
+
+# Parcel/React cache
+.parcel-cache/
+
+# Uploads & temporary files
+uploads/
+*.bak
+*.tmp
+*.swp
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Optional
+*.tgz
+*.gz
+
+# Coverage reports
+coverage/
+
+# Debug
+debug.log
+
+# macOS system files
+Icon?
+
+# Windows system files
+ehthumbs.db
+desktop.ini
+
+# Local config files
+*.local
+
+# Render or deployment folders (optional)
+render-build/
+
+# Logs and error outputs
+*.log
+*.err
+*.out
