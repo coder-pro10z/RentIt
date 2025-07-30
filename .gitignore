@@ -51,7 +51,7 @@ coverage/
 debug.log
 
 # macOS system files
-Icon?
+# Icon?
 
 # Windows system files
 ehthumbs.db
@@ -67,3 +67,4 @@ render-build/
 *.log
 *.err
 *.out
+!client/src/icons/Login.json
