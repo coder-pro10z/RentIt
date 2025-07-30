@@ -62,11 +62,37 @@ const User = mongoose.model('User', userSchema);
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname+'/uploads'))
-app.use(cors({
-    credentials:true,
-    origin:'http://localhost:3000',
-}));
+// app.use(cors({
+//     credentials:true,
+//     origin:'http://localhost:3000',
+// }));
 
+// Allow CORS only from your frontend Vercel URL
+// app.use(cors({
+//   origin: 'https://rent-it-wine.vercel.app',
+//   credentials: true  // Important if you're using cookies or sessions
+// }));
+
+
+// const cors = require('cors');
+
+const allowedOrigins = [
+  'http://localhost:3000',             // your local React dev
+  'https://rent-it-wine.vercel.app'    // your deployed frontend
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 //test
 app.get('/',(req, res) => {
 res.json("test ok")})
