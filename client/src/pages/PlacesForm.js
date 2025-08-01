@@ -100,63 +100,56 @@ export default function PlacesForm(){
 
 
     return(
-        <div>
-              <div className='shadow-lg rounded-2xl ml-[29%] mr-[29%] mt-[1%]'>  <AccountNav/> </div>
-            <div className="shadow-lg  p-9 ml-[15%] mr-[15%]">
+            <div>
+                    <div className='shadow-lg rounded-2xl ml-[29%] mr-[29%] mt-[1%]'>  <AccountNav/> </div>
+                    <div className="shadow-lg  p-9 ml-[15%] mr-[15%]">
+               
         <form onSubmit={savePlace}>
-            {preInput('Title', 'Title for Your Place. should be short and precise for advertisement')}
-            <input className="inline-flex border-2 border-gray-300 rounded-md w-100 min-w-full mt-1 p-1" type="text" value={title}
-                onChange={ev => setTitle(ev.target.value)} placeholder=" Title, For Example: My Lovely Apartment"  required/>
+                    {preInput('Title', 'Title for Your Place. should be short and precise for advertisement')}
+                    <input className="inline-flex border-2 border-gray-300 rounded-md w-100 min-w-full mt-1 p-1" type="text" value={title}
+                        onChange={ev => setTitle(ev.target.value)} placeholder=" Title, For Example: My Lovely Apartment"  required/>
 
-            {preInput('Address', 'Address to your Place that is going on rent ')}
+                    {preInput('Address', 'Address to your Place that is going on rent ')}
 
 
-            <input type="text" className='inline-flex border-2 border-gray-300 rounded-md w-100 min-w-full mt-1 p-1'
-                value={address}
-                onChange={ev => setAddress(ev.target.value)} placeholder=" Address"  required/>
-                
+                    <input type="text" className='inline-flex border-2 border-gray-300 rounded-md w-100 min-w-full mt-1 p-1'
+                        value={address}
+                        onChange={ev => setAddress(ev.target.value)} placeholder=" Address"  required/>
+                        
+                    {preInput('Photos', 'The more the better')}
+
+                    {/*there was the photo grid section later to transfer in the later parts*/}
+                    <PhotoUploader addedPhotos={addedPhotos
+                    } onChange={setAddedPhotos}/>
+
+                    <div className="flex">
+
+                        <div>
+                        {preInput('Description', 'Description for Your Place. should be short and precise for advertisement ')}
+                            <textarea className="border-2 border-gray-300 rounded-md p-8 w-80 mt-2" value={description}
+                                onChange={ev => setDescription(ev.target.value)}></textarea>
+                        </div>
+                <div className="mx-[12%]">
+                {preInput('Extra Info', 'House Rules, etc')}
+
+                <textarea className="border-2 border-gray-300 rounded-md w-80 p-8 " value={extraInfo}
+                    onChange={ev => setExtraInfo(ev.target.value)} />
+
+                </div>
+                            
+                </div>
+                {/* Perks */}
+
+                {preInput('Perks', 'Select all the perks of your place')}
+
+                <div className="grid  grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
+                    <Perks selected={perks} onChange={setPerks} />
+                </div>
+                {/* Extra Info  */}
             
-            
-            {preInput('Photos', 'The more the better')}
+                {preInput('Check In & Out times ', 'Select all the perks of your place')}
 
-{/*there was thge photo grid section later to transfer in the later parts*/}
-<PhotoUploader addedPhotos={addedPhotos
-} onChange={setAddedPhotos}/>
-
-    <div className="flex">
-
-        <div>
-        {preInput('Description', 'Description for Your Place. should be short and precise for advertisement ')}
-            <textarea className="border-2 border-gray-300 rounded-md p-8 w-80 mt-2" value={description}
-    onChange={ev => setDescription(ev.target.value)}></textarea>
-        </div>
-<div className="mx-[12%]">
-{preInput('Extra Info', 'House Rules, etc')}
-
-<textarea className="border-2 border-gray-300 rounded-md w-80 p-8 " value={extraInfo}
-    onChange={ev => setExtraInfo(ev.target.value)} />
-
-</div>
-            
-
-
-    </div>
-
-
-
-            {/* Perks */}
-
-            {preInput('Perks', 'Select all the perks of your place')}
-
-            <div className="grid  grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
-                <Perks selected={perks} onChange={setPerks} />
-            </div>
-            {/* Extra Info  */}
-           
-            {preInput('Check In & Out times ', 'Select all the perks of your place')}
-
-
-            <div className="mt-2 grid sm:grid-cols-3 items-center text-center ">
+                <div className="mt-2 grid sm:grid-cols-3 items-center text-center ">
                 <div >
                     <h3>Check in time</h3>
                     <input className="inline-flex border-2 border-gray-300 rounded-md mt-1 mb-1 p-1" type='text' value={checkIn}
