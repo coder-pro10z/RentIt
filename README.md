@@ -1,6 +1,6 @@
 
 ```
-RentIt(publishing)
+RentIt(publishing+demo)
 ├─ client
 │  ├─ package-lock.json
 │  ├─ package.json
